@@ -22,9 +22,14 @@ const App = () => {
     setUser(authService.getUser())
   }
 
+  const pathName = window.location.pathname
+
   return (
     <>
-      <NavBar user={user} handleLogout={handleLogout} />
+      {
+        pathName !=="/" &&
+        <NavBar user={user} handleLogout={handleLogout} />
+      }
       <Routes>
         <Route path="/" element={<Landing user={user} />} />
         <Route
